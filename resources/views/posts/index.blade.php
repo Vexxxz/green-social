@@ -7,6 +7,6 @@
     <title>Green Social</title>
 </head>
 <body>
-    <p>Homepage Green Social</p>
+    <h1>Homepage Green Social</h1>
 </body>
 </html>
