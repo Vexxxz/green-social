@@ -15,11 +15,12 @@ Run <code>cp .env.example .env</code>
 Run <code>php artisan key:generate</code>
 
 ganti setting .env database jadi ini
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=green_social_db
-DB_USERNAME=root
+
+DB_CONNECTION=mysql<br>
+DB_HOST=127.0.0.1<br>
+DB_PORT=3306<br>
+DB_DATABASE=green_social_db<br>
+DB_USERNAME=root<br>
 DB_PASSWORD=
 
 Run <code>php artisan migrate</code>
