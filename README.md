@@ -4,7 +4,7 @@ social media for climate change
 ## Getting Started
 fork project ini
 
-Run <code>git clone https://github.com/stanleymuktar/green-social.git</code>
+Run <code>git clone https://github.com/YOUR-USERNAME/green-social.git</code>
 
 Run <code>cd green-social</code>
 
