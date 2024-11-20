@@ -12,7 +12,9 @@ class UserPostController extends Controller
      */
     public function index()
     {
-        return view("posts.index");
+        $posts = UserPost::all();
+
+        return view("posts.index", compact("posts"));
     }
 
     /**
