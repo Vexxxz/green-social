@@ -14,6 +14,8 @@ Run <code>cp .env.example .env</code>
 
 Run <code>php artisan key:generate</code>
 
+Run <code>code .</code>
+
 ganti setting .env database jadi ini
 
 DB_CONNECTION=mysql<br>
