@@ -25,6 +25,8 @@ DB_DATABASE=green_social_db<br>
 DB_USERNAME=root<br>
 DB_PASSWORD=
 
+nyalakan xampp mysql & apache
+
 Run <code>php artisan migrate</code>
 
 Run <code>php artisan db:seed</code>
