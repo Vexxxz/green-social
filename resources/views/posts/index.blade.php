@@ -1,23 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Green Social</title>
+    <title>User Posts</title>
 </head>
 <body>
-    <h1>Homepage Green Social</h1>
+    <h1>All Posts</h1>
 
-    <h2>Posts</h2>
-    @if (isset($posts))
-        @foreach ($posts as $post)
-            <div style="width:90%; border:solid black 1px; margin-bottom: 10px; padding: 10px;">
-                {{ $post["message"] }}
-            </div>
-        @endforeach
+    <a href="{{ route('user_posts.create') }}">Create New Post</a>
+
+    @if ($message = Session::get('success'))
+        <p style="color: green;">{{ $message }}</p>
+    @endif
+
+    @if ($posts->isEmpty())
+        <p>No posts available.</p>
     @else
-        <div>Posts list is empty.</div>
+        <ul>
+            @foreach ($posts as $post)
+                <li>
+                    <p>{{ $post->message }}</p>
+                    <p>Likes: {{ $post->likes }}</p>
+
+                    <form action="{{ route('user_posts.destroy', $post->id) }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            @endforeach
+        </ul>
+
+        {{ $posts->links() }}
     @endif
 </body>
 </html>
