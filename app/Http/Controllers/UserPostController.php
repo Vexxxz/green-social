@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\UserPost;
 use Illuminate\Http\Request;
+use Log;
 
 class UserPostController extends Controller
 {
