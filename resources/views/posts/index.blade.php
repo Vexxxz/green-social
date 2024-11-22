@@ -22,23 +22,21 @@
         @if ($posts->isEmpty())
             <p>No posts available.</p>
         @else
-                @foreach ($posts as $post)
-                    <div class="container mb-3 p-3 border rounded ">
-                        <p>{{ $post->message }}</p>
-                        <p>Likes: {{ $post->likes }}</p>
-    
-                        <form action="{{ route('user_posts.destroy', $post->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
-                @endforeach
-    
+            @foreach ($posts as $post)
+                <div class="container mb-3 p-3 border rounded ">
+                    <p>{{ $post->message }}</p>
+                    <p>Likes: {{ $post->likes }}</p>
+
+                    <form action="{{ route('user_posts.destroy', $post->id) }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            @endforeach
             <div class="container">
                 {{ $posts->links('pagination::bootstrap-5') }}
             </div>
-            
         @endif
     </div>
 </body>

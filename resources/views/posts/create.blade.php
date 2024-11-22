@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous defer"></script>
 </head>
 <body>
-    <div class="container mt-4">
+    <div class="container mt-3">
         <h1 class="mb-3">Create a New Post</h1>
 
         <form action="{{ route('user_posts.store') }}" method="POST">
