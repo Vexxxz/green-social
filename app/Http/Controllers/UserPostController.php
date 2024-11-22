@@ -23,11 +23,12 @@ class UserPostController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'message' => 'required|string|max:2048', 
+            'message' => 'required | string | max:2048', 
         ]);
 
-        UserPost::create($request->all());
-
+        $user = new UserPost();
+        $user->message = $request->message;
+        $user->save();
 
         return redirect()->route('posts.index')->with('success', 'Post created successfully.');
     }
@@ -37,7 +38,6 @@ class UserPostController extends Controller
     {
         $userPost->delete();
 
-    
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
     }
 }

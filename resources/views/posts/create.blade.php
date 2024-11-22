@@ -9,6 +9,9 @@
     <div class="container mt-3">
         <h1 class="mb-3">Create a New Post</h1>
 
+        @foreach ($errors->all() as $error)
+            <p class="text-danger">{{ $error }}</p>
+        @endforeach
         <form action="{{ route('posts.store') }}" method="POST">
             @csrf
             <div class="mb-3">
