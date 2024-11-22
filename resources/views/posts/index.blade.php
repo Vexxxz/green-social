@@ -16,9 +16,7 @@
         </form>
     
         @if ($message = Session::get('success'))
-            <div class="container ms-5">
                 <p style="color: green;">{{ $message }}</p>
-            </div>
         @endif
     
         @if ($posts->isEmpty())
