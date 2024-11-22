@@ -11,7 +11,7 @@
     </div>
 
     <div class="container" style="margin-top: 90px">
-        <form action="{{ route('user_posts.create') }}" method="GET">
+        <form action="{{ route('posts.create') }}" method="GET">
             <button type="submit" class="btn btn-primary mb-3">Create Post</button>
         </form>
     
@@ -27,7 +27,7 @@
                     <p>{{ $post->message }}</p>
                     <p>Likes: {{ $post->likes }}</p>
 
-                    <form action="{{ route('user_posts.destroy', $post->id) }}" method="POST" style="display: inline;">
+                    <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

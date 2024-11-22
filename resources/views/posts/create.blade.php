@@ -9,7 +9,7 @@
     <div class="container mt-3">
         <h1 class="mb-3">Create a New Post</h1>
 
-        <form action="{{ route('user_posts.store') }}" method="POST">
+        <form action="{{ route('posts.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="message" class="form-label">Enter Message</label>

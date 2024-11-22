@@ -16,7 +16,6 @@ class UserPostController extends Controller
 
     public function create()
     {
-
         return view('posts.create');
     }
 
@@ -30,7 +29,7 @@ class UserPostController extends Controller
         UserPost::create($request->all());
 
 
-        return redirect()->route('user_posts.index')->with('success', 'Post created successfully.');
+        return redirect()->route('posts.index')->with('success', 'Post created successfully.');
     }
 
 
@@ -39,6 +38,6 @@ class UserPostController extends Controller
         $userPost->delete();
 
     
-        return redirect()->route('user_posts.index')->with('success', 'Post deleted successfully.');
+        return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
     }
 }
