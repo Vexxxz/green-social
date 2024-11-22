@@ -18,11 +18,6 @@
         @if ($message = Session::get('success'))
                 <p class="text-success">{{ $message }}</p>
         @endif
-
-        @isset($success)
-            <p class="text-success">{{ $message }}</p>
-        @endisset
-        
         @if ($posts->isEmpty())
             <p>No posts available.</p>
         @else
