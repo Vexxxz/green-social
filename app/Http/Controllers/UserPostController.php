@@ -9,7 +9,7 @@ class UserPostController extends Controller
 {
     public function index()
     {
-        $posts = UserPost::paginate(10);
+        $posts = UserPost::orderBy("updated_at", "desc")->paginate(10);
 
         return view("posts.index", compact("posts"));
     }
