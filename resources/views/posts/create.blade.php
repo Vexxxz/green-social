@@ -11,9 +11,9 @@
 
         <form action="{{ route('user_posts.store') }}" method="POST">
             @csrf
-            <label for="message" class="mb-2">Message:</label><br>
-            <div class="form-floating mb-4">
-                <textarea class="form-control" name="message" id="message" rows="5" cols="40" required></textarea>
+            <div class="mb-3">
+                <label for="message" class="form-label">Enter Message</label>
+                <textarea class="form-control" name="message" id="message" rows="3" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
