@@ -17,8 +17,9 @@ class PostController extends Controller
     public function show(string $id)
     {
         $post = Post::find($id);
+        $comments = $post->comments()->paginate(10);
 
-        return view('posts.show', compact('post'));
+        return view('posts.show', compact('post', 'comments'));
     }
 
     public function create()

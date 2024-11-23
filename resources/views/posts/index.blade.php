@@ -10,10 +10,14 @@
        <h1>Green Social Homepage</h1>
     </div>
 
-    <div class="container" style="margin-top: 90px">
-        <form action="{{ route('posts.create') }}" method="GET">
-            <button type="submit" class="btn btn-primary mb-3">Create Post</button>
-        </form>
+    <div class="container" style="margin-top: 100px">
+        <div class="row">
+            <h3 class="col-3">Posts</h3>
+            <form class="col-3 offset-6 text-end" action="{{ route('posts.create') }}" method="GET">
+                <button type="submit" class="btn btn-primary">Create Post</button>
+            </form>
+        </div>
+        <hr>
     
         @if ($message = Session::get('success'))
                 <p class="text-success">{{ $message }}</p>

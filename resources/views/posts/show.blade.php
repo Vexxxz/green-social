@@ -8,14 +8,42 @@
 <body>
     <div class="container mt-3">
         <h1 class="mb-4">View Post</h1>
+        <p class="border rounded p-3 mb-5">{{ $post->message }}</p>
+        <div class="row">
+            <h3 class="col-3">Comments</h3>
+            <form class="col-3 offset-6 text-end" action="{{ route('posts.create') }}" method="GET">
+                <button type="submit" class="btn btn-primary">Create Comment</button>
+            </form>
+        </div>
+        <hr>
 
-        @isset($post)
-            <p class="border rounded p-3 mb-5">{{ $post->message }}</p>
-            <h3>Comments</h3>
-            <hr>
-        @else
-            <p>Post Not Found.</p>
-        @endisset
+        @foreach ($comments as $comment)
+            <div class="container mb-3 p-3 border rounded ">
+                <p>{{ $comment->message }}</p>
+                <p>Likes: {{ $comment->likes }}</p>
+
+                <div class="row">
+                    <form class="col-2" action="{{ route('posts.show', $post->id) }}" method="GET" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">View Post</button>
+                    </form>
+                    <div class="col-3 offset-7 text-end">
+                        <form action="{{ route('posts.edit', $post->id) }}" method="GET" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        <div class="container">
+            {{ $comments->links('pagination::bootstrap-5') }}
+        </div>
     </div>
 </body>
 </html>
