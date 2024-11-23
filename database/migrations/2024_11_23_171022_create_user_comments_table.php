@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_comments', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_posts_id');
+            $table->unsignedBigInteger('user_post_id');
+            $table->foreign('user_post_id')->references('id')->on('user_posts');
             $table->string('message', 2048);
             $table->integer('likes')->unsigned()->default(0);
             $table->string('image')->nullable();

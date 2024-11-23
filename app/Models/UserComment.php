@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class UserPost extends Model
+class UserComment extends Model
 {
     use HasFactory;
-    
-    protected $table = 'user_posts';
+
+    protected $table = 'user_comments';
     protected $fillable = ['message', 'likes', 'image'];
 
-    public function comments()
+    public function post()
     {
-        return $this->hasMany(UserComment::class);
+        return $this->belongsTo(UserPost::class, 'user_posts_id');
     }
 }
