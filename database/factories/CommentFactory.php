@@ -1,16 +1,15 @@
 <?php
 
 namespace Database\Factories;
-
-use App\Models\UserComment;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserComment>
  */
-class UserCommentFactory extends Factory
+class CommentFactory extends Factory
 {
-    protected $model = UserComment::class;
+    protected $model = Comment::class;
 
     public function definition(): array
     {
@@ -26,6 +25,6 @@ class UserCommentFactory extends Factory
 
     protected static function newFactory()
     {
-        return UserCommentFactory::new();
+        return CommentFactory::new();
     }
 }

@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserPost;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class UserPostController extends Controller
+class PostController extends Controller
 {
     public function index()
     {
-        $posts = UserPost::orderBy("created_at", "desc")->paginate(10);
+        $posts = Post::orderBy("created_at", "desc")->paginate(10);
 
         return view("posts.index", compact("posts"));
     }
 
     public function show(string $id)
     {
-        $post = UserPost::find($id);
+        $post = Post::find($id);
 
         return view('posts.show', compact('post'));
     }
@@ -32,7 +32,7 @@ class UserPostController extends Controller
             'message' => 'required | string | max:2048', 
         ]);
 
-        $post = new UserPost();
+        $post = new Post();
         $post->message = $request->message;
         $post->save();
 
@@ -41,7 +41,7 @@ class UserPostController extends Controller
 
     public function edit(string $id)
     {
-        $post = UserPost::find($id);
+        $post = Post::find($id);
 
         return view('posts.edit', compact('post'));
     }
@@ -52,7 +52,7 @@ class UserPostController extends Controller
             'message' => 'required | string | max:2048', 
         ]);
 
-        $post = UserPost::find($id);
+        $post = Post::find($id);
         $post->message = $request->message;
         $post->save();
 
@@ -61,7 +61,7 @@ class UserPostController extends Controller
 
     public function destroy(string $id)
     {
-        UserPost::find($id)->delete();
+        Post::find($id)->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
     }

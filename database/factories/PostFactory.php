@@ -1,16 +1,12 @@
 <?php
 
 namespace Database\Factories;
-
-use App\Models\UserPost;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserPost>
- */
-class UserPostFactory extends Factory
+class PostFactory extends Factory
 {
-    protected $model = UserPost::class;
+    protected $model = Post::class;
 
     public function definition(): array
     {
@@ -26,6 +22,6 @@ class UserPostFactory extends Factory
 
     protected static function newFactory()
     {
-        return UserPostFactory::new();
+        return PostFactory::new();
     }
 }

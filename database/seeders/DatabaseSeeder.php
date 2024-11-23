@@ -2,11 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use App\Models\UserComment;
-use App\Models\UserPost;
-use Database\Factories\UserPostFactory;
+use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,10 +22,6 @@ class DatabaseSeeder extends Seeder
         
         // $this->call(UserPostsSeeder::class);
 
-        UserPost::factory()->has(UserComment::factory()->count(5), 'comments')->create();
-        // $post = UserPost::factory()->create();
-
-        // $comments = UserComment::factory()->count(5)->create();
-        // UserPost::factory()->count(5)->create();
+        Post::factory()->has(Comment::factory()->count(12), 'comments')->count(32)->create();
     }
 }
