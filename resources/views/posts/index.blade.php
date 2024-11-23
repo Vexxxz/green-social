@@ -26,15 +26,23 @@
                     <p>{{ $post->message }}</p>
                     <p>Likes: {{ $post->likes }}</p>
 
-                    <form action="{{ route('posts.edit', $post->id) }}" method="GET" style="display: inline;">
-                        @csrf
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </form>
-                    <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display: inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                    <div class="row">
+                        <form class="col-2" action="{{ route('posts.show', $post->id) }}" method="GET" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">View Post</button>
+                        </form>
+                        <div class="col-3 offset-7 text-end">
+                            <form action="{{ route('posts.edit', $post->id) }}" method="GET" style="display: inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </form>
+                            <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             @endforeach
             <div class="container">

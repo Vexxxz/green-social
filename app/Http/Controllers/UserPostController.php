@@ -14,11 +14,17 @@ class UserPostController extends Controller
         return view("posts.index", compact("posts"));
     }
 
+    public function show(string $id)
+    {
+        $post = UserPost::find($id);
+
+        return view('posts.show', compact('post'));
+    }
+
     public function create()
     {
         return view('posts.create');
     }
-
 
     public function store(Request $request)
     {
@@ -52,7 +58,6 @@ class UserPostController extends Controller
 
         return redirect()->route('posts.index')->with('success','Post Updated successfully.');
     }
-
 
     public function destroy(string $id)
     {
