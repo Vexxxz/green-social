@@ -7,5 +7,5 @@ Route::get('/', function () {
     return redirect()->route('posts.index');
 });
 
-Route::resource('posts', UserPostController::class)->only(['index', 'create', 'store', 'destroy']);
+Route::resource('posts', UserPostController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
 

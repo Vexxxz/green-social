@@ -26,6 +26,10 @@
                     <p>{{ $post->message }}</p>
                     <p>Likes: {{ $post->likes }}</p>
 
+                    <form action="{{ route('posts.edit', $post->id) }}" method="GET" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
                     <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')

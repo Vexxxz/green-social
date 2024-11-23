@@ -9,7 +9,7 @@ class UserPostController extends Controller
 {
     public function index()
     {
-        $posts = UserPost::orderBy("updated_at", "desc")->paginate(10);
+        $posts = UserPost::orderBy("created_at", "desc")->paginate(10);
 
         return view("posts.index", compact("posts"));
     }
@@ -26,17 +26,37 @@ class UserPostController extends Controller
             'message' => 'required | string | max:2048', 
         ]);
 
-        $user = new UserPost();
-        $user->message = $request->message;
-        $user->save();
+        $post = new UserPost();
+        $post->message = $request->message;
+        $post->save();
 
         return redirect()->route('posts.index')->with('success', 'Post created successfully.');
     }
 
-
-    public function destroy(UserPost $userPost)
+    public function edit(string $id)
     {
-        $userPost->delete();
+        $post = UserPost::find($id);
+
+        return view('posts.edit', compact('post'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'message' => 'required | string | max:2048', 
+        ]);
+
+        $post = UserPost::find($id);
+        $post->message = $request->message;
+        $post->save();
+
+        return redirect()->route('posts.index')->with('success','Post Updated successfully.');
+    }
+
+
+    public function destroy(string $id)
+    {
+        UserPost::find($id)->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
     }
