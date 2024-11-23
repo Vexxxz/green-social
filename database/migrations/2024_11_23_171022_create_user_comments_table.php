@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_posts', function (Blueprint $table) {
+        Schema::create('user_comments', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_posts_id');
             $table->string('message', 2048);
             $table->integer('likes')->unsigned()->default(0);
             $table->string('image')->nullable();
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_posts');
+        Schema::dropIfExists('user_comments');
     }
 };
