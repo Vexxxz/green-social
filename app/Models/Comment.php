@@ -16,4 +16,8 @@ class Comment extends Model
     {
         return $this->belongsTo(Post::class, 'post_id');
     }
+    public function like()
+    {
+        return $this->hasOne(CommentLike::class);
+    }
 }
