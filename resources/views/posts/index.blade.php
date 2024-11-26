@@ -31,11 +31,11 @@
                     <p>Likes: {{ $post->likes }}</p>
 
                     <div class="row">
-                        <form class="col-2" action="{{ route('posts.show', $post->id) }}" method="GET" style="display: inline;">
+                        <form class="col-6" action="{{ route('posts.show', $post->id) }}" method="GET" style="display: inline;">
                             @csrf
                             <button type="submit" class="btn btn-primary">View Post</button>
                         </form>
-                        <div class="col-3 offset-7 text-end">
+                        <div class="col-6 text-end">
                             <form action="{{ route('posts.edit', $post->id) }}" method="GET" style="display: inline;">
                                 @csrf
                                 <button type="submit" class="btn btn-primary">Update</button>
