@@ -19,8 +19,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        
-        // $this->call(UserPostsSeeder::class);
 
         Post::factory()->has(Comment::factory()->count(12), 'comments')->count(32)->create();
     }
