@@ -24,7 +24,6 @@ class CommentController extends Controller
 
     public function show(Comment $comment)
     {
-        // Biasanya digunakan untuk menampilkan detail komentar tertentu
         return view('comments.show', compact('comment'));
     }
 
