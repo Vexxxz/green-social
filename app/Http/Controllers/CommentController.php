@@ -19,7 +19,7 @@ class CommentController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Comment created successfully.');
     }
 
     public function show(Comment $comment)
@@ -35,13 +35,13 @@ class CommentController extends Controller
 
         $comment->update($request->all());
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Comment Updated successfully.');
     }
 
     public function destroy(Comment $comment)
     {
         $comment->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Comment deleted successfully.');
     }
 }
