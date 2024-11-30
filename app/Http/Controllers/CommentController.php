@@ -8,13 +8,13 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function store(Request $request, Post $post)
+    public function store(Request $request, Comment $comment)
     {
         $request->validate([
             'content' => 'required',
         ]);
 
-        $post->comments()->create([
+        $comment->comments()->create([
             'content' => $request->content,
             'user_id' => auth()->id(),
         ]);
