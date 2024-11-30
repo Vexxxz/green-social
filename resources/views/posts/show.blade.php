@@ -11,8 +11,9 @@
         <p class="border rounded p-3 mb-5">{{ $post->message }}</p>
         <div class="row">
             <h3 class="col-3">Comments</h3>
-            <form class="col-3 offset-6 text-end" action="{{ route('posts.create') }}" method="GET">
-                <button type="submit" class="btn btn-primary">Create Comment</button>
+            <form class="col-3 offset-6 text-end" action="{{ route('comments.store', $post) }}" method="POST">
+              @csrf
+              <button type="submit" class="btn btn-primary">Create Comment</button>
             </form>
         </div>
         <hr>
